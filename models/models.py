@@ -4,8 +4,8 @@ from sqlalchemy import Column, String, Integer, Date, ForeignKey
 from db_util import Base
 
 
-
 class User(Base):
+    import pydantic
     __tablename__ = "user"
 
     id = Column("id", Integer, primary_key=True, autoincrement=True)
@@ -23,6 +23,14 @@ class User(Base):
     def to_string(self):
         return f"ID: {self.id}, Name: {self.first_name}, Surname: {self.last_name}, DOB: {self.dob}"
 
+    @pydantic.validator("first_name")
+    @classmethod
+    def first_name_valid(cls, value):
+        import string
+        if any(p in value for p in string.punctuation):
+            raise ValueError("First name should not contain punctuation.")
+        else:
+            return value
 
 class UserProfile(Base):
     __tablename__ = "user_profile"

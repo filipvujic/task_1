@@ -1,18 +1,9 @@
 from fastapi import APIRouter
-from models.models import User
-from sqlalchemy import select
-import main
+from services import user_service
 
 
 router = APIRouter(tags=["User"], prefix="/user")
 
-@router.get("/get/{first_name_param}")
-async def get_all_users(first_name_param: str):
-    ### Using where clause.
-    user1 = main.session.query(User).where(User.first_name == first_name_param).all()[0]
-
-    ### Using filter.
-    user2 = main.session.query(User).filter(User.first_name == first_name_param).all()[0]
-    
-    #return {"message": user1.to_string()}
-    return {"message": user2.to_string()}
+@router.get("/get-by-id/{id_param}")
+async def get_by_id(id_param: str):
+    return await user_service.get_by_id(id_param=id_param)

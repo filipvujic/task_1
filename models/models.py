@@ -36,6 +36,9 @@ class UserProfile(Base):
         super().__init__()
         self.email = email
         self.company = "Qcerris"
+    
+    def to_string(self):
+        return f"ID: {self.user_id}, Email: {self.email}, Company: {self.company}, Pets: {self.pets}"
 
 
 class Pet(Base):

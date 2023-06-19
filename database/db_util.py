@@ -45,7 +45,7 @@ class DbUtil():
 
         session = self.get_session()
 
-        user1 = User("Filip..", "Vujic", None, "filip.vujic@qcerris.com")
+        user1 = User("Filip", "Vujic", None, "filip.vujic@qcerris.com")
         user2 = User("Nikola", "Ilic", None, "nikola.ilic@qcerris.com")
         user3 = User("Teodora", "Markovic", None, "teodora.markovic@qcerris.com")
         user4 = User("Bura", "Buric", None, "bura.buric@qcerris.com")

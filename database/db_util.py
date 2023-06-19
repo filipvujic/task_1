@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from sqlalchemy_utils import database_exists, create_database, drop_database
-from config import reinit_db
+from database.db_config import reinit_db
 
 class Base(DeclarativeBase):
     pass

@@ -1,11 +1,11 @@
 from typing import List
 from sqlalchemy.orm import mapped_column, Mapped, relationship
 from sqlalchemy import Column, String, Integer, Date, ForeignKey
-from db_util import Base
-
+from database.db_util import Base
+import pydantic
 
 class User(Base):
-    import pydantic
+    
     __tablename__ = "user"
 
     id = Column("id", Integer, primary_key=True, autoincrement=True)

@@ -1,5 +1,5 @@
 from models.models import UserProfile
-from db_util import DbUtil
+from database.db_util import DbUtil
 
 
 async def get_by_id(id_param: str):

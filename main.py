@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from db_util import DbUtil
+from database.db_util import DbUtil
 from routers import api_router
 
 app = FastAPI()

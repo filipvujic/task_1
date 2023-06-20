@@ -9,7 +9,7 @@ class Base(DeclarativeBase):
 class DbUtil():
 
     conn_string = 'postgresql://postgres:postgres@localhost:5432/task_1_db'
-    engine = create_engine(conn_string, echo=True, isolation_level='AUTOCOMMIT')
+    engine = create_engine(conn_string, echo=False, isolation_level='AUTOCOMMIT')
 
 
     @classmethod

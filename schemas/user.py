@@ -7,6 +7,11 @@ from pydantic import BaseModel, validator
 
 class UserCreation(BaseModel):
 
+    first_name: str | None
+    last_name: str | None
+    dob: str | None
+    email: str
+
     @validator("email", check_fields=False)
     def email_valid(cls, value):
         if not value:
@@ -20,3 +25,7 @@ class UserCreation(BaseModel):
             raise ValueError("First name should not contain punctuation.")
         else:
             return value
+        
+class UserUpdate(UserCreation):
+
+    id: int

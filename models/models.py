@@ -23,7 +23,7 @@ class User(Base):
         self.user_profile = UserProfile(email)
 
     def to_string(self):
-        return f"ID: {self.id}, Name: {self.first_name}, Surname: {self.last_name}, DOB: {self.dob}"
+        return f"ID: {self.id}, Name: {self.first_name}, Surname: {self.last_name}, DOB: {self.dob}, Email: {self.user_profile.email}"
 
 
 class UserProfile(Base):

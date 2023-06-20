@@ -13,6 +13,7 @@ class DbUtil():
 
 
     @classmethod
+    def get_session(self):
         
         Base.metadata.create_all(bind=DbUtil.engine)
         Session = sessionmaker(bind=DbUtil.engine)

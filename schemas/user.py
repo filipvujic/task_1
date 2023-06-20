@@ -5,7 +5,7 @@ from pydantic import BaseModel, validator
 #     first_name: str | None
 #     last_name: str | None
 
-class UserCreation(BaseModel):
+class UserBase(BaseModel):
 
     first_name: str | None
     last_name: str | None
@@ -26,6 +26,6 @@ class UserCreation(BaseModel):
         else:
             return value
         
-class UserUpdate(UserCreation):
+class UserUpdate(UserBase):
 
     id: int

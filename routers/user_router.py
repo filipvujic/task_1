@@ -1,11 +1,11 @@
 from fastapi import APIRouter
 from services import user_service
-from schemas.user import UserCreation, UserUpdate
+from schemas.user import UserBase, UserUpdate
 
 router = APIRouter(tags=["User"], prefix="/user")
 
 @router.post("/create")
-async def create(user: UserCreation):
+async def create(user: UserBase):
     return await user_service.create(user)
 
 @router.get("/get-by-id/{id_param}")

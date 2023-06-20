@@ -1,9 +1,9 @@
 from database.db_util import DbUtil
 from dao.user_dao import UserDao
 from models.models import User
-from schemas.user import UserCreation, UserUpdate
+from schemas.user import UserBase, UserUpdate
 
-async def create(user: UserCreation):
+async def create(user: UserBase):
     session = DbUtil.get_session()
     await UserDao(session).create(user)
     return {"message": f"Created user: {user}" }

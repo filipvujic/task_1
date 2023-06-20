@@ -17,7 +17,7 @@ class User(Base):
 
     def __init__(self, first_name, last_name, dob, email):
         #self.first_name = first_name
-        self.first_name = userschema.UserCreation.first_name_valid(first_name)
+        self.first_name = userschema.UserBase.first_name_valid(first_name)
         self.last_name = last_name
         self.dob = dob
         self.user_profile = UserProfile(email)
@@ -37,7 +37,7 @@ class UserProfile(Base):
     def __init__(self, email):
         super().__init__()
         #self.email = email
-        self.email = userschema.UserCreation.email_valid(email)
+        self.email = userschema.UserBase.email_valid(email)
         self.company = "Qcerris"
     
     def to_string(self):
